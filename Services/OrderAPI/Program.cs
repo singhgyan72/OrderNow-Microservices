@@ -1,5 +1,5 @@
 using AutoMapper;
-//using OrderNow.MessageBus;
+using OrderNow.MessageBus;
 using OrderNow.Services.OrderAPI;
 using OrderNow.Services.OrderAPI.Data;
 using OrderNow.Services.OrderAPI.Extensions;
@@ -26,7 +26,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<BackendApiAuthenticationHttpClientHandler>();
-//builder.Services.AddScoped<IMessageBus, MessageBus>();
+builder.Services.AddScoped<IMessageBus, MessageBus>();
 builder.Services.AddHttpClient("Product", u => u.BaseAddress =
 new Uri(builder.Configuration["ServiceUrls:ProductAPI"])).AddHttpMessageHandler<BackendApiAuthenticationHttpClientHandler>();
 builder.Services.AddControllers();
@@ -72,7 +72,7 @@ app.UseSwaggerUI(c =>
         c.RoutePrefix = string.Empty;
     }
 });
-//Stripe.StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
+Stripe.StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

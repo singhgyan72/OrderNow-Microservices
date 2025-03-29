@@ -21,7 +21,7 @@ namespace OrderNow.Services.EmailAPI.Services
             StringBuilder message = new StringBuilder();
 
             message.AppendLine("<br/>Cart Email Requested ");
-            message.AppendLine("<br/>Total " + cartDto.CartHeader.CartTotal);
+            message.AppendLine(string.Format("<br/>Order Total {0:c}", cartDto.CartHeader.CartTotal));
             message.Append("<br/>");
             message.Append("<ul>");
             foreach (var item in cartDto.CartDetails)

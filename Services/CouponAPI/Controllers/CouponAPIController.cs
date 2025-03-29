@@ -85,6 +85,18 @@ namespace OrderNow.Services.CouponAPI.Controllers
 
                 _db.SaveChanges();
 
+                #region Create coupon on stripe.com portal
+                //var options = new Stripe.CouponCreateOptions
+                //{
+                //    AmountOff = (long)(couponDTO.DiscountAmount * 100),
+                //    Name = couponDTO.CouponCode,
+                //    Currency = "usd",
+                //    Id = couponDTO.CouponCode,
+                //};
+                //var service = new Stripe.CouponService();
+                //service.Create(options); 
+                #endregion
+
                 _response.Result = _mapper.Map<CouponDTO>(coupon);
             }
             catch (Exception ex)
@@ -132,6 +144,11 @@ namespace OrderNow.Services.CouponAPI.Controllers
                 {
                     _db.Coupons.Remove(coupon);
                     _db.SaveChanges();
+
+                    #region Delete coupon from stripe.com portal
+                    //var service = new Stripe.CouponService();
+                    //service.Delete(coupon.CouponCode); 
+                    #endregion
                 }
 
                 _response.Result = _mapper.Map<CouponDTO>(coupon);

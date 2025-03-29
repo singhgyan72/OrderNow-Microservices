@@ -22,7 +22,7 @@ namespace OrderNow.Services.EmailAPI.Messaging
 
         public AzureServiceBusConsumer(IConfiguration configuration, EmailService emailService)
         {
-            _emailService=emailService;
+            _emailService = emailService;
             _configuration = configuration;
 
             serviceBusConnectionString = _configuration.GetValue<string>("ServiceBusConnectionString");
@@ -35,7 +35,7 @@ namespace OrderNow.Services.EmailAPI.Messaging
             var client = new ServiceBusClient(serviceBusConnectionString);
             _emailCartProcessor = client.CreateProcessor(emailCartQueue);
             _registerUserProcessor = client.CreateProcessor(registerUserQueue);
-            _emailOrderPlacedProcessor = client.CreateProcessor(orderCreated_Topic,orderCreated_Email_Subscription);
+            _emailOrderPlacedProcessor = client.CreateProcessor(orderCreated_Topic, orderCreated_Email_Subscription);
         }
 
         public async Task Start()
@@ -53,7 +53,7 @@ namespace OrderNow.Services.EmailAPI.Messaging
             await _emailOrderPlacedProcessor.StartProcessingAsync();
         }
 
-       
+
 
         public async Task Stop()
         {
@@ -77,10 +77,11 @@ namespace OrderNow.Services.EmailAPI.Messaging
             try
             {
                 //TODO - try to log email
-                await _emailService.EmailCartAndLog(objMessage);  
+                await _emailService.EmailCartAndLog(objMessage);
                 await args.CompleteMessageAsync(args.Message);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 throw;
             }
 
@@ -130,6 +131,6 @@ namespace OrderNow.Services.EmailAPI.Messaging
             return Task.CompletedTask;
         }
 
-       
+
     }
 }

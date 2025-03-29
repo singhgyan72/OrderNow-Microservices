@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using OrderNow.MessageBus;
 using OrderNow.Services.AuthAPI.Data;
 using OrderNow.Services.AuthAPI.Models;
 using OrderNow.Services.AuthAPI.Service;
@@ -21,6 +22,7 @@ builder.Services
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("ApiSettings:JwtOptions"))
     .AddScoped<IAuthService, AuthService>()
     .AddScoped<IJwtTokenGenerator, JwtTokenGenerator>()
+    .AddScoped<IMessageBus, MessageBus>()
     .AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
