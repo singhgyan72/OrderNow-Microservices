@@ -1,0 +1,6 @@
+@OrderNow.Services.RewardAPI_HostAddress = http://localhost:5174
+
+GET {{OrderNow.Services.RewardAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
