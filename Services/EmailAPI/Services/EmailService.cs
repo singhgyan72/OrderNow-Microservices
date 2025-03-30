@@ -38,7 +38,7 @@ namespace OrderNow.Services.EmailAPI.Services
         public async Task LogOrderPlaced(RewardsMessage rewardsDto)
         {
             string message = "New Order Placed. <br/> Order ID : " + rewardsDto.OrderId;
-            await LogAndEmail(message, "dotnetmastery@gmail.com");
+            await LogAndEmail(message, "admin@gmail.com");
         }
 
         public async Task RegisterUserEmailAndLog(string email)
