@@ -19,7 +19,7 @@ namespace OrderNow.WebApp.Service
             {
                 ApiType = Helpers.ApiType.POST,
                 Data = cartDTO,
-                ApiUrl = Helpers.OrderAPIBase + "/order/CreateOrder"
+                ApiUrl = Helpers.OrderAPIBase + "/api/order/CreateOrder"
             });
         }
 
@@ -29,7 +29,7 @@ namespace OrderNow.WebApp.Service
             {
                 ApiType = Helpers.ApiType.POST,
                 Data = stripeRequestDTO,
-                ApiUrl = Helpers.OrderAPIBase + "/order/CreateStripeSession"
+                ApiUrl = Helpers.OrderAPIBase + "/api/order/CreateStripeSession"
             });
         }
 
@@ -38,7 +38,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO()
             {
                 ApiType = Helpers.ApiType.GET,
-                ApiUrl = Helpers.OrderAPIBase + "/order/GetOrders?userId=" + userId
+                ApiUrl = Helpers.OrderAPIBase + "/api/order/GetOrders?userId=" + userId
             });
         }
 
@@ -47,7 +47,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO()
             {
                 ApiType = Helpers.ApiType.GET,
-                ApiUrl = Helpers.OrderAPIBase + "/order/GetOrder/" + orderId
+                ApiUrl = Helpers.OrderAPIBase + "/api/order/GetOrder/" + orderId
             });
         }
 
@@ -57,7 +57,7 @@ namespace OrderNow.WebApp.Service
             {
                 ApiType = Helpers.ApiType.POST,
                 Data = newStatus,
-                ApiUrl = Helpers.OrderAPIBase + "/order/UpdateOrderStatus/" + orderId
+                ApiUrl = Helpers.OrderAPIBase + "/api/order/UpdateOrderStatus/" + orderId
             });
         }
 
@@ -67,7 +67,7 @@ namespace OrderNow.WebApp.Service
             {
                 ApiType = Helpers.ApiType.POST,
                 Data = orderHeaderId,
-                ApiUrl = Helpers.OrderAPIBase + "/order/ValidateStripeSession"
+                ApiUrl = Helpers.OrderAPIBase + "/api/order/ValidateStripeSession"
             });
         }
     }

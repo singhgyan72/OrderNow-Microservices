@@ -19,7 +19,7 @@ namespace OrderNow.WebApp.Service
             {
                 ApiType = Helpers.ApiType.POST,
                 Data = cartDTO,
-                ApiUrl = Helpers.ShoppingCartAPIBase + "/cart/ApplyCoupon"
+                ApiUrl = Helpers.ShoppingCartAPIBase + "/api/cart/ApplyCoupon"
             });
         }
 
@@ -29,7 +29,7 @@ namespace OrderNow.WebApp.Service
             {
                 ApiType = Helpers.ApiType.POST,
                 Data = cartDTO,
-                ApiUrl = Helpers.ShoppingCartAPIBase + "/cart/EmailCartRequest"
+                ApiUrl = Helpers.ShoppingCartAPIBase + "/api/cart/EmailCartRequest"
             });
         }
 
@@ -38,7 +38,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO()
             {
                 ApiType = Helpers.ApiType.GET,
-                ApiUrl = Helpers.ShoppingCartAPIBase + "/cart/GetCart/" + userId
+                ApiUrl = Helpers.ShoppingCartAPIBase + "/api/cart/GetCart/" + userId
             });
         }
 
@@ -49,7 +49,7 @@ namespace OrderNow.WebApp.Service
             {
                 ApiType = Helpers.ApiType.POST,
                 Data = cartDetailsId,
-                ApiUrl = Helpers.ShoppingCartAPIBase + "/cart/RemoveCart"
+                ApiUrl = Helpers.ShoppingCartAPIBase + "/api/cart/RemoveCart"
             });
         }
 
@@ -60,7 +60,7 @@ namespace OrderNow.WebApp.Service
             {
                 ApiType = Helpers.ApiType.POST,
                 Data = cartDTO,
-                ApiUrl = Helpers.ShoppingCartAPIBase + "/cart/CartUpsert"
+                ApiUrl = Helpers.ShoppingCartAPIBase + "/api/cart/CartUpsert"
             });
         }
     }

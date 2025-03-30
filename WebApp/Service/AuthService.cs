@@ -18,7 +18,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO
             {
                 ApiType = Utility.Helpers.ApiType.POST,
-                ApiUrl = Helpers.AuthAPIBase + "/authAPI/assignRole",
+                ApiUrl = Helpers.AuthAPIBase + "/api/authAPI/assignRole",
                 Data = registrationRequestDTO
             });
         }
@@ -28,7 +28,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO
             {
                 ApiType = Utility.Helpers.ApiType.POST,
-                ApiUrl = Helpers.AuthAPIBase + "/authAPI/login",
+                ApiUrl = Helpers.AuthAPIBase + "/api/authAPI/login",
                 Data = loginRequestDTO
             }, withBearer: false);
         }
@@ -38,7 +38,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO
             {
                 ApiType = Utility.Helpers.ApiType.POST,
-                ApiUrl = Helpers.AuthAPIBase + "/authAPI/register",
+                ApiUrl = Helpers.AuthAPIBase + "/api/authAPI/register",
                 Data = registrationRequestDTO
             }, withBearer: false);
         }

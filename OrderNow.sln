@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderNow.Services.RewardAPI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderNow.Services.ShoppingCartAPI", "Services\ShoppingCartAPI\OrderNow.Services.ShoppingCartAPI.csproj", "{D97FA8BF-2319-4B16-8C94-F877A63904F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderNow.GatewaySolution", "Gateway\GatewaySolution\OrderNow.GatewaySolution.csproj", "{1701B889-9A69-3C4B-3164-F80946CF0707}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{D97FA8BF-2319-4B16-8C94-F877A63904F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D97FA8BF-2319-4B16-8C94-F877A63904F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D97FA8BF-2319-4B16-8C94-F877A63904F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1701B889-9A69-3C4B-3164-F80946CF0707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1701B889-9A69-3C4B-3164-F80946CF0707}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1701B889-9A69-3C4B-3164-F80946CF0707}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1701B889-9A69-3C4B-3164-F80946CF0707}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +91,7 @@ Global
 		{A8F4F869-C1CC-4106-8FB6-7C76BB3BDC6D} = {EF22BCC8-7CA6-44E2-88E7-40FC632F2F23}
 		{5897D7CD-5B33-4C5F-8B4F-DB8E62DD0A6C} = {EF22BCC8-7CA6-44E2-88E7-40FC632F2F23}
 		{D97FA8BF-2319-4B16-8C94-F877A63904F9} = {EF22BCC8-7CA6-44E2-88E7-40FC632F2F23}
+		{1701B889-9A69-3C4B-3164-F80946CF0707} = {4A1839CA-15A5-492D-B1E5-1039039A936B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E85461D9-FD21-4FD2-A5A5-A9E5E5701DF2}

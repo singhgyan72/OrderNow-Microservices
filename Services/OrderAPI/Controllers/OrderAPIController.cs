@@ -37,7 +37,7 @@ namespace OrderNow.Services.OrderAPI.Controllers
 
         [Authorize]
         [HttpGet("GetOrders")]
-        public ResponseDTO? Get(string? userId = "")
+        public ResponseDTO? Get([FromQuery] string? userId = "")
         {
             try
             {

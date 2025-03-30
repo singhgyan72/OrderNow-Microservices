@@ -18,7 +18,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO
             {
                 ApiType = Utility.Helpers.ApiType.POST,
-                ApiUrl = Helpers.CouponAPIBase + "/couponAPI",
+                ApiUrl = Helpers.CouponAPIBase + "/api/couponAPI",
                 Data = coupon
             });
         }
@@ -28,7 +28,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO
             {
                 ApiType = Utility.Helpers.ApiType.DELETE,
-                ApiUrl = Helpers.CouponAPIBase + "/couponAPI/" + couponId
+                ApiUrl = Helpers.CouponAPIBase + "/api/couponAPI/" + couponId
             });
         }
 
@@ -37,7 +37,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO
             {
                 ApiType = Utility.Helpers.ApiType.GET,
-                ApiUrl = Helpers.CouponAPIBase + "/couponAPI"
+                ApiUrl = Helpers.CouponAPIBase + "/api/couponAPI"
             });
         }
 
@@ -46,7 +46,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO
             {
                 ApiType = Utility.Helpers.ApiType.GET,
-                ApiUrl = Helpers.CouponAPIBase + "/couponAPI/GetByCode/" + couponCode
+                ApiUrl = Helpers.CouponAPIBase + "/api/couponAPI/GetByCode/" + couponCode
             });
         }
 
@@ -55,7 +55,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO
             {
                 ApiType = Utility.Helpers.ApiType.GET,
-                ApiUrl = Helpers.CouponAPIBase + "/couponAPI/" + couponId
+                ApiUrl = Helpers.CouponAPIBase + "/api/couponAPI/" + couponId
             });
         }
 
@@ -64,7 +64,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO
             {
                 ApiType = Utility.Helpers.ApiType.PUT,
-                ApiUrl = Helpers.CouponAPIBase + "/couponAPI",
+                ApiUrl = Helpers.CouponAPIBase + "/api/couponAPI",
                 Data = coupon
             });
         }

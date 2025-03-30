@@ -18,7 +18,7 @@ namespace OrderNow.WebApp.Service
             {
                 ApiType = Helpers.ApiType.POST,
                 Data = productDTO,
-                ApiUrl = Helpers.ProductAPIBase + "/product",
+                ApiUrl = Helpers.ProductAPIBase + "/api/product",
                 ContentType = Helpers.ContentType.MultipartFormData
             });
         }
@@ -28,7 +28,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO()
             {
                 ApiType = Helpers.ApiType.DELETE,
-                ApiUrl = Helpers.ProductAPIBase + "/product/" + id
+                ApiUrl = Helpers.ProductAPIBase + "/api/product/" + id
             });
         }
 
@@ -37,7 +37,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO()
             {
                 ApiType = Helpers.ApiType.GET,
-                ApiUrl = Helpers.ProductAPIBase + "/product"
+                ApiUrl = Helpers.ProductAPIBase + "/api/product"
             });
         }
 
@@ -48,7 +48,7 @@ namespace OrderNow.WebApp.Service
             return await _httpClientService.SendAsync(new RequestDTO()
             {
                 ApiType = Helpers.ApiType.GET,
-                ApiUrl = Helpers.ProductAPIBase + "/product/" + id
+                ApiUrl = Helpers.ProductAPIBase + "/api/product/" + id
             });
         }
 
@@ -58,7 +58,7 @@ namespace OrderNow.WebApp.Service
             {
                 ApiType = Helpers.ApiType.PUT,
                 Data = productDTO,
-                ApiUrl = Helpers.ProductAPIBase + "/product",
+                ApiUrl = Helpers.ProductAPIBase + "/api/product",
                 ContentType = Helpers.ContentType.MultipartFormData
             });
         }
