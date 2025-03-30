@@ -22,7 +22,14 @@ namespace OrderNow.WebApp.Service
         {
             HttpClient httpClient = _httpClientFactory.CreateClient("OrderNowAPI");
             HttpRequestMessage requestMessage = new HttpRequestMessage();
-            requestMessage.Headers.Add("Accept", "application/json");
+            if (request.ContentType == ContentType.MultipartFormData)
+            {
+                requestMessage.Headers.Add("Accept", "*/*");
+            }
+            else
+            {
+                requestMessage.Headers.Add("Accept", "application/json");
+            }
             //token
             if (withBearer)
             {
@@ -31,9 +38,34 @@ namespace OrderNow.WebApp.Service
             }
 
             requestMessage.RequestUri = new Uri(request.ApiUrl);
-            if (request.Data != null)
+            if (request.ContentType == ContentType.MultipartFormData)
             {
-                requestMessage.Content = new StringContent(JsonConvert.SerializeObject(request.Data), Encoding.UTF8, "application/json");
+                var content = new MultipartFormDataContent();
+
+                foreach (var prop in request.Data.GetType().GetProperties())
+                {
+                    var value = prop.GetValue(request.Data);
+                    if (value is FormFile)
+                    {
+                        var file = (FormFile)value;
+                        if (file != null)
+                        {
+                            content.Add(new StreamContent(file.OpenReadStream()), prop.Name, file.FileName);
+                        }
+                    }
+                    else
+                    {
+                        content.Add(new StringContent(value == null ? "" : value.ToString()), prop.Name);
+                    }
+                }
+                requestMessage.Content = content;
+            }
+            else
+            {
+                if (request.Data != null)
+                {
+                    requestMessage.Content = new StringContent(JsonConvert.SerializeObject(request.Data), Encoding.UTF8, "application/json");
+                }
             }
             switch (request.ApiType)
             {
