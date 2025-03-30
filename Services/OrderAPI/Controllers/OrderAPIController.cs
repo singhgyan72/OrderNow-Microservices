@@ -42,6 +42,7 @@ namespace OrderNow.Services.OrderAPI.Controllers
             try
             {
                 IEnumerable<OrderHeader> objList;
+                //If admin is accessing the orders, get all orders
                 if (User.IsInRole(Helpers.RoleAdmin))
                 {
                     objList = _db.OrderHeaders.Include(u => u.OrderDetails).OrderByDescending(u => u.OrderHeaderId).ToList();
@@ -217,7 +218,7 @@ namespace OrderNow.Services.OrderAPI.Controllers
                 {
                     if (newStatus == Helpers.Status_Cancelled)
                     {
-                        //we will give refund
+                        //we will give refund through stripe pg
                         var options = new RefundCreateOptions
                         {
                             Reason = RefundReasons.RequestedByCustomer,
